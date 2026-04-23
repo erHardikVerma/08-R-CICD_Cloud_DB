@@ -25,12 +25,15 @@
    - *Challenge Overcome:* Ran into an IPv4/IPv6 networking error where the local machine couldn't see Supabase's direct URL.
    - *Solution:* Switched to Supabase's **Session Pooler** URL, successfully bypassing the issue and establishing a stable connection.
 4. **Server Integration (`app.py`):**
-   - Successfully imported the `conn` variable from `db.py` into `app.py`.
-   - Created our first **Cursor** (the "waiter" that carries SQL queries).
-   - Executed our first SQL query (`SELECT * from users`).
+   - Successfully imported the connection from `db.py` into `app.py`.
+   - Renamed variables for better mental mapping: `table` (connection), `waiter` (cursor), and `food` (fetched data).
+   - Executed our first SQL query (`SELECT * from users`) and used `.fetchall()` to retrieve the data.
+5. **Version Control Setup:**
+   - Overhauled `.gitignore` to prevent pushing OS/IDE junk and secrets.
+   - Created a reusable `push.bat` script to automate commits and pushing to GitHub.
 
 ## 🗺️ Future Roadmap (The Game Plan)
-1. **Level Up Python:** Learn to fetch and print the database data.
+1. **Power On Server:** Add `app.run()` to start the Flask server locally so routes can be tested in a browser.
 2. **Build Endpoints:** Convert that data into JSON so it acts as a real API.
 3. **Containerization:** Wrap the Flask app in Docker so it can run anywhere.
 4. **Automation:** Set up a Jenkins pipeline to automatically test and build our code.
