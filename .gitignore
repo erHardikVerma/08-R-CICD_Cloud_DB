@@ -1,0 +1,23 @@
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Python specific
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+
+# OS specific files (the "useless stuff")
+.DS_Store
+Thumbs.db
+
+# Flask specific
+instance/
+.pytest_cache/
