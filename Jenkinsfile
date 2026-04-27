@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    // Poll GitHub every minute - if new commits found, auto-trigger build
+    triggers {
+        pollSCM('* * * * *')
+    }
+
     stages {
         // Stage 1: Pull the latest code from GitHub
         stage('Clone Repository') {
