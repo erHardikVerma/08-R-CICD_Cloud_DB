@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, jsonify
 from db import table 
+import psycopg2.extras
 app = Flask(__name__)
 
 @app.route('/')
@@ -8,12 +9,14 @@ def index():
 
 # cursor is a interface which is passing on the queries to sql.
 
-    waiter=table.cursor()
-    # Waiter - give him the query (sql)- what do u want    
-    waiter.execute("SELECT * from users")
+    waiter=table.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    waiter.execute('SELECT * from "EBG"')
 
     # food - data what wa have got from sql as per order 
     food=waiter.fetchall()
     print(food)
-    return 'Hello World from EBG'
+    return jsonify(food)
+
+if __name__ == '__main__':
+    app.run(debug=True)
 

@@ -31,10 +31,15 @@
 5. **Version Control Setup:**
    - Overhauled `.gitignore` to prevent pushing OS/IDE junk and secrets.
    - Created a reusable `push.bat` script to automate commits and pushing to GitHub.
+6. **Server Activation:**
+   - Added `if __name__ == '__main__': app.run(debug=True)` to `app.py`.
+   - Successfully started the development server and verified the Flask debugger is active.
+
+7. **Build Endpoints:**
+   - Imported `jsonify` to convert database tuples into JSON format.
+   - Successfully created a raw API endpoint that returns data to the browser.
 
 ## 🗺️ Future Roadmap (The Game Plan)
-1. **Power On Server:** Add `app.run()` to start the Flask server locally so routes can be tested in a browser.
-2. **Build Endpoints:** Convert that data into JSON so it acts as a real API.
-3. **Containerization:** Wrap the Flask app in Docker so it can run anywhere.
-4. **Automation:** Set up a Jenkins pipeline to automatically test and build our code.
-5. **Deployment:** Deploy the Docker container to an AWS EC2 instance so the world can access it.
+1. **Containerization:** Wrap the Flask app in Docker so it can run anywhere.
+2. **Automation:** Set up a Jenkins pipeline to automatically test and build our code.
+3. **Deployment:** Deploy the Docker container to an AWS EC2 instance so the world can access it.
