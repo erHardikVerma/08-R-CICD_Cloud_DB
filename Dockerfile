@@ -16,5 +16,5 @@ COPY . .
 # 6. Expose the port so traffic can come in
 EXPOSE 5000
 
-# 7. The command to turn the server on when the box starts
-CMD ["python", "app.py"]
+# 7. The command to turn the server on when the box starts (gunicorn = production server)
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
