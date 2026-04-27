@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EBG - Thank You Notes App with Role-Based Access">
+    <title>EBG - Thank You Board</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ═══════ Animated Background ═══════ -->
+    <div class="bg-gradient"></div>
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- ═══════ AUTH SCREEN ═══════ -->
+    <div id="auth-screen" class="screen active">
+        <div class="auth-container glass-card">
+            <div class="auth-header">
+                <div class="logo-icon">🎯</div>
+                <h1>EBG</h1>
+                <p class="subtitle">Thank You Board</p>
+            </div>
+
+            <!-- Tab Toggle -->
+            <div class="tab-toggle">
+                <button id="login-tab" class="tab active" onclick="switchTab('login')">Login</button>
+                <button id="signup-tab" class="tab" onclick="switchTab('signup')">Sign Up</button>
+                <div class="tab-slider"></div>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active" onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <input type="text" id="login-username" placeholder=" " required>
+                    <label>Username</label>
+                    <div class="input-line"></div>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" placeholder=" " required>
+                    <label>Password</label>
+                    <div class="input-line"></div>
+                </div>
+                <button type="submit" class="btn-primary" id="login-btn">
+                    <span>Login</span>
+                    <div class="btn-loader"></div>
+                </button>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" class="auth-form" onsubmit="handleSignup(event)">
+                <div class="input-group">
+                    <input type="text" id="signup-name" placeholder=" " required>
+                    <label>Full Name</label>
+                    <div class="input-line"></div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="signup-username" placeholder=" " required>
+                    <label>Username</label>
+                    <div class="input-line"></div>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="signup-password" placeholder=" " required>
+                    <label>Password</label>
+                    <div class="input-line"></div>
+                </div>
+                <button type="submit" class="btn-primary" id="signup-btn">
+                    <span>Create Account</span>
+                    <div class="btn-loader"></div>
+                </button>
+            </form>
+
+            <div id="auth-message" class="message"></div>
+        </div>
+    </div>
+
+    <!-- ═══════ MAIN APP SCREEN ═══════ -->
+    <div id="app-screen" class="screen">
+        <!-- Top Bar -->
+        <nav class="top-bar glass-card">
+            <div class="nav-left">
+                <span class="nav-logo">🎯</span>
+                <h2>Thank You Board</h2>
+            </div>
+            <div class="nav-right">
+                <div class="user-badge" id="user-badge">
+                    <span class="user-name" id="display-name"></span>
+                    <span class="role-tag" id="role-tag"></span>
+                </div>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h1 id="welcome-text">Welcome back!</h1>
+            <p class="welcome-sub">Here's what people are thankful for today ✨</p>
+        </div>
+
+        <!-- Admin: Add Note Section -->
+        <div id="admin-panel" class="admin-panel glass-card" style="display:none;">
+            <h3>📝 Add a Thank You Note</h3>
+            <div class="note-input-area">
+                <textarea id="note-input" placeholder="Write something people should be thankful for..." maxlength="500"></textarea>
+                <button class="btn-primary btn-add" onclick="addNote()">
+                    <span>Post Note</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Notes Feed -->
+        <div class="notes-feed" id="notes-feed">
+            <div class="loading-notes">
+                <div class="spinner"></div>
+                <p>Loading notes...</p>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state" style="display:none;">
+            <div class="empty-icon">📭</div>
+            <h3>No notes yet</h3>
+            <p>Be the first admin to post a thank you note!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
