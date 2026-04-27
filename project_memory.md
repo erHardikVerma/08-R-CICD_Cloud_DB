@@ -39,7 +39,11 @@
    - Imported `jsonify` to convert database tuples into JSON format.
    - Successfully created a raw API endpoint that returns data to the browser.
 
+8. **Docker Containerization:**
+   - Authored a `Dockerfile` using `python:3.10-slim`.
+   - Updated `app.run(host="0.0.0.0")` in `app.py` so the container allows external traffic.
+   - Cleaned up `requirements.txt` to only include `Flask` and `psycopg2-binary`.
+
 ## 🗺️ Future Roadmap (The Game Plan)
-1. **Containerization:** Wrap the Flask app in Docker so it can run anywhere.
-2. **Automation:** Set up a Jenkins pipeline to automatically test and build our code.
-3. **Deployment:** Deploy the Docker container to an AWS EC2 instance so the world can access it.
+1. **Automation:** Set up a Jenkins pipeline to automatically test and build our Docker code.
+2. **Deployment:** Deploy the Docker container to an AWS EC2 instance so the world can access it.
