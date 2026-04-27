@@ -49,8 +49,10 @@
    - Created a `Jenkinsfile` with 3 stages: Clone Repo → Build Docker Image → Smoke Test Container.
    - Uses `bat` commands (Windows-native Jenkins).
    - Pushed to GitHub so Jenkins can read it directly from the repo.
+   - *Bug Fixed:* `timeout /t 5` doesn't work in Jenkins (no stdin). Replaced with `ping -n 6 127.0.0.1 > nul`.
+   - ✅ **All 3 stages passed GREEN on Jenkins!** Pipeline is fully operational.
 
 ## 🗺️ Future Roadmap (The Game Plan)
-1. **Jenkins Job Setup:** Create a Pipeline job in Jenkins UI pointing to our GitHub repo's Jenkinsfile.
-2. **Deployment:** Deploy the Docker container to an AWS EC2 instance so the world can access it.
+1. **AWS Deployment:** Deploy the Docker container to an AWS EC2 instance so the world can access it.
+2. **GitHub Webhook:** Auto-trigger Jenkins pipeline on every `git push` (true CI/CD).
 3. **Frontend:** Build a web UI that consumes our Flask JSON API.
