@@ -53,6 +53,20 @@
    - ✅ **All 3 stages passed GREEN on Jenkins!** Pipeline is fully operational.
 
 ## 🗺️ Future Roadmap (The Game Plan)
-1. **AWS Deployment:** Deploy the Docker container to an AWS EC2 instance so the world can access it.
-2. **GitHub Webhook:** Auto-trigger Jenkins pipeline on every `git push` (true CI/CD).
-3. **Frontend:** Build a web UI that consumes our Flask JSON API.
+1. **Frontend:** Build a web UI that consumes our Flask JSON API and deploy on Vercel/Netlify.
+
+## 🌍 Live URLs
+- **Backend API:** `https://ebg-backend.onrender.com`
+- **GitHub Repo:** `https://github.com/erHardikVerma/08-R-CICD_Cloud_DB`
+
+## 🏗️ Deployment Architecture
+```
+GitHub Push → Render auto-detects → Builds Docker → Deploys to cloud
+           → Jenkins polls every 1 min → Builds & tests Docker locally
+```
+
+## 🔧 Production Changes Made
+- Added `gunicorn` (production WSGI server) to replace Flask dev server.
+- `CMD` in Dockerfile changed to `gunicorn --bind 0.0.0.0:5000 app:app`.
+- `PORT` is read from environment variable for Render compatibility.
+- `debug=False` in production.
