@@ -11,7 +11,7 @@ This project demonstrates a complete, modern web architecture with CI/CD integra
 ## 🌍 Important Links
 - **GitHub Repository:** [https://github.com/erHardikVerma/08-R-CICD_Cloud_DB](https://github.com/erHardikVerma/08-R-CICD_Cloud_DB)
 - **Backend API:** [https://ebg-backend.onrender.com](https://ebg-backend.onrender.com)
-- **Frontend App:** *(Will be updated post-deployment)*
+- **Frontend App:** [https://cicd-cloud.vercel.app](https://cicd-cloud.vercel.app)
 
 ## 🚀 Features
 - Complete CRUD API via Flask.
