@@ -20,7 +20,7 @@ pipeline {
         stage('Test Container') {
             steps {
                 bat 'docker run -d -p 5000:5000 --name ebg-test ebg-backend'
-                bat 'timeout /t 5'
+                bat 'ping -n 6 127.0.0.1 > nul'
                 bat 'docker logs ebg-test'
                 bat 'docker stop ebg-test'
                 bat 'docker rm ebg-test'

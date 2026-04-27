@@ -43,7 +43,14 @@
    - Authored a `Dockerfile` using `python:3.10-slim`.
    - Updated `app.run(host="0.0.0.0")` in `app.py` so the container allows external traffic.
    - Cleaned up `requirements.txt` to only include `Flask` and `psycopg2-binary`.
+   - Successfully built image `ebg-backend` and test-ran it — confirmed Supabase connection works from inside the container.
+
+9. **Jenkins Pipeline:**
+   - Created a `Jenkinsfile` with 3 stages: Clone Repo → Build Docker Image → Smoke Test Container.
+   - Uses `bat` commands (Windows-native Jenkins).
+   - Pushed to GitHub so Jenkins can read it directly from the repo.
 
 ## 🗺️ Future Roadmap (The Game Plan)
-1. **Automation:** Set up a Jenkins pipeline to automatically test and build our Docker code.
+1. **Jenkins Job Setup:** Create a Pipeline job in Jenkins UI pointing to our GitHub repo's Jenkinsfile.
 2. **Deployment:** Deploy the Docker container to an AWS EC2 instance so the world can access it.
+3. **Frontend:** Build a web UI that consumes our Flask JSON API.
