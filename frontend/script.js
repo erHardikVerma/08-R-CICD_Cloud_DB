@@ -1,6 +1,6 @@
 // Switch between local and production:
-// const API_URL = 'https://ebg-backend.onrender.com';  // Production (Render)
-const API_URL = 'http://localhost:5000';  // Local Development
+const API_URL = 'https://ebg-backend.onrender.com';  // Production (Render)
+// const API_URL = 'http://localhost:5000';  // Local Development
 
 // ═══════ State ═══════
 let currentUser = null;
